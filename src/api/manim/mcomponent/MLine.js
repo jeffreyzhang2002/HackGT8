@@ -5,7 +5,7 @@ export default class MLine extends MComponent {
         super();
 
         this.template = {
-            Name: "Line?"
+            Name: "Line?",
             Start: {
                 X1: -1,
                 Y1: 0,

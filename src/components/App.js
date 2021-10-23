@@ -68,19 +68,21 @@ export default class App extends React.Component
     {
         return(
             <Container>
-                <LeftPanel style={{width:"20vw", backgroundColor:"red"}}>
-                    <Hierarchy style={{backgroundColor: "gray"}} values = {this.state.Objects} callBack={this.bindedUpdateSelection}/>
-                    <Components style={{backgroundColor: "yellow"}} components={ManimObjects} callBack={this.bindedUpdateObject}/>
+                <LeftPanel style={{width:"20vw"}}>
+                    <Hierarchy style={{backgroundColor: "#39383d"}} values = {this.state.Objects} callBack={this.bindedUpdateSelection}/>
+                    <Components style={{backgroundColor: "#616065"}} components={ManimObjects} callBack={this.bindedUpdateObject}/>
                 </LeftPanel>
-                <MainPanel style={{width:"60vw", backgroundColor:"green"}}>
-                    <Preview style={{backgroundColor: "white"}}/>
-                    <Timeline style={{backgroundColor: "red"}}/>
+                <MainPanel style={{width:"60vw"}}>
+                    <Preview style={{backgroundColor: "black"}}/>
+                    <Timeline style={{backgroundColor: "#616065"}}/>
                 </MainPanel>
-                <RightPanel style={{width:"20vw", backgroundColor:"orange"}} components = {this.state}>
+                <RightPanel style={{width:"20vw", backgroundColor:"#39383d"}} components = {this.state}>
 
                 </RightPanel>
             </Container>
         );
     }
 }
+
+
 

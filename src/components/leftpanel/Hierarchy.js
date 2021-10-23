@@ -7,6 +7,7 @@ const Container = Styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 4px solid #262629;
 `;
 
 const Label = Styled.div`

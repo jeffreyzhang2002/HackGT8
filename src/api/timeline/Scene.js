@@ -1,9 +1,11 @@
 export default class Scene {
     constructor() {
-        this.clips = []
+        this.MC = [];
+        this.MA = [];
     }
 
-    generate() {
+    generate(name) {
         // TODO hahahahahaha
+        return name;
     }
 }

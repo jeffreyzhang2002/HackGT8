@@ -4,11 +4,13 @@ export default class MComponent {
     constructor() {
         this.render = true;
         this.template = {
-            Name: "Component",
-            Duration: 1000,
-            X: 0,
-            Y: 0,
-            Rotation: 0,
+            Name: { value: "Component" },
+            Duration: {value: 1000},
+            Pose: {
+                X: 0,
+                Y: 0,
+                Rotation: 0,
+            },
             Fill: {
                 Enabled: false,
                 Opacity: 0,

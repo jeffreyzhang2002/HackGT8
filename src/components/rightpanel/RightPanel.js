@@ -8,11 +8,14 @@ const Container = Styled.div`
     flex-direction: column;
     box-sizing: border-box;
     border-left: 4px solid blue;
+    
+    overflow-y: auto;
+    
 `;
 
 const Title = Styled.h1`
     margin: 0;
-    padding: 0;
+    padding-top: 1em;
     text-align: center;
 `
 
@@ -77,14 +80,12 @@ export default class RightPanel extends React.Component{
             });
         }
 
-
-
-        console.log("here")
-        console.log(this.props.components.Objects[this.props.components.Selection])
-
         return(
             <Container {...this.props}>
                 {this.entries}
+                <br/>
+                <br/>
+                <br/>
             </Container>
         )
     }

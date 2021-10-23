@@ -5,8 +5,8 @@ export default class MFade extends MAnimation {
         super();
         this.template = {
             ...this.template,
-            Scale: 1,
-            Shift: "None"
+            Scale: {Value: 1},
+            Shift: {Value: "None"}
         }
     }
 }

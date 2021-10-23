@@ -3,6 +3,11 @@ import MLine from "./api/manim/mcomponent/MLine";
 import MPoint from "./api/manim/mcomponent/MPoint";
 import MRectangle from "./api/manim/mcomponent/MRectangle";
 
+import MCreation from "./api/manim/manimation/MCreation";
+import MFade from "./api/manim/manimation/MFade";
+import MTransform from "./api/manim/manimation/MTransform";
+import MWrite from "./api/manim/manimation/MWrite";
+
 const ManimObjects = {
     Geometry: {
         Line: MLine,
@@ -12,9 +17,10 @@ const ManimObjects = {
     },
 
     Animation: {
-        Fade: "File",
-        Appear: "File",
-        Move: "File",
+        Creation: MCreation,
+        Fade: MFade,
+        Transform: MTransform,
+        Write: MWrite,
     },
 }
 

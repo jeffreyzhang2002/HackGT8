@@ -1,7 +1,7 @@
 export default class MAnimation {
     constructor() {
         this.template = {
-            Type: "Auto" // In, Out, Both, Auto is a placeholder pretty much lmfao
+            Animation: {Type: "Auto"} // In, Out, Both, Auto is a placeholder pretty much lmfao
         }
     }
 

@@ -5,8 +5,8 @@ export default class MMath extends MComponent{
         super();
         this.template = {
             ...this.template,
-            TexString: undefined,
-            FontSize: undefined
+            TexString: "",
+            FontSize: 11
         }
     }
 }

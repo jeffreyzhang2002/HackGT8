@@ -8,7 +8,7 @@ import MFade from "./api/manim/manimation/MFade";
 import MTransform from "./api/manim/manimation/MTransform";
 import MWrite from "./api/manim/manimation/MWrite";
 
-const ManimObjects = {
+const MobjectList = {
     Geometry: {
         Line: MLine,
         Rectangle: MRectangle,
@@ -24,4 +24,4 @@ const ManimObjects = {
     },
 }
 
-export default ManimObjects;
+export default MobjectList;

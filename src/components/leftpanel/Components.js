@@ -47,21 +47,29 @@ const Title = Styled.h1`
 
 export default class Components extends React.Component {
     render() {
+        let renderList = [];
 
-        this.children = [];
+        let groups = 0;
+        Object.entries(this.props.components).forEach(
+            ([key, value]) => {
+                let labels = [];
 
-        Object.entries(this.props.components).forEach(([key, value]) => {
-            this.lables = [];
-            Object.entries(value).forEach(([key,value])=> {
-                this.lables.push(<Label onClick={(e) =>
-                    {this.props.callBack(key, new value())}}> {key} </Label>)
-            })
-
-            this.children.push(
-              <Detail>
-                  <Summary> {key} </Summary>
-                  {this.lables}
-              </Detail>
+                let items = 0;
+                Object.entries(value).forEach(
+                    ([key,value]) => {
+                        labels.push(
+                            <Label
+                                key = {items++}
+                                onClick={(e) => {this.props.callBack(key, new value())}}
+                            >
+                                {key}
+                            </Label>)
+                    })
+                renderList.push(
+                <Detail key = {groups++}>
+                    <Summary> {key} </Summary>
+                    {labels}
+                </Detail>
           )
         }
         );
@@ -70,7 +78,7 @@ export default class Components extends React.Component {
             <Container {...this.props}>
                 <Title> Components </Title>
                 <Items>
-                    {this.children}
+                    {renderList}
                 </Items>
             </Container>
         )

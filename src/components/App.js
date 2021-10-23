@@ -1,5 +1,6 @@
 import React from "react";
 import Styled from "styled-components";
+
 import LeftPanel from "./leftpanel/LeftPanel";
 import RightPanel from "./rightpanel/RightPanel";
 import MainPanel from "./mainpanel/MainPanel";
@@ -7,8 +8,9 @@ import Hierarchy from "./leftpanel/Hierarchy";
 import Components from "./leftpanel/Components";
 import Preview from "./mainpanel/Preview";
 import Timeline from "./mainpanel/Timeline";
+import UserInput from "./rightpanel/UserInput";
 
-import ManimObjects from "../ManimObjects";
+import MobjectList from "../MobjectList";
 
 
 const Container = Styled.div`
@@ -19,65 +21,77 @@ const Container = Styled.div`
 
 export default class App extends React.Component
 {
-
     constructor(props) {
         super(props);
 
-        this.bindedUpdateObject = this.updateObjects.bind(this);
-        this.bindedUpdateSelection = this.updateSelection.bind(this);
+        this.updateMobjectList = this.appendMobjectList.bind(this);
+        this.updateSelectedMobject = this.changeSelectedMobject.bind(this);
+        this.updateMobjectProperties = this.updateLabels.bind(this);
 
         this.state = {
-            Objects: {},
-            Selection: {}
+            mobjects: {},
+            selectedmobjectindex: undefined,
+        };
+    }
+
+    appendMobjectList(name, template){
+        let index = Object.keys(this.state.mobjects).length;
+        this.state.mobjects[index] = template;
+        this.setState({
+            mobjects: {
+                ...this.state.mobjects,
+            },
+            selectedmobjectindex: index,
+        }, console.log("Appended " + template + " to mobject list"));
+    }
+
+    changeSelectedMobject(selection){
+        this.setState({
+            mobjects: {
+                ...this.state.mobjects,
+            },
+            selectedmobjectindex: selection,
+        }, console.log(this.state.mobjects[selection]));
+    }
+
+    updateLabels(selectionIndex, key, value) {
+
+        if(typeof(value) == "object") {
+            this.state.mobjects[selectionIndex].template[key][value['k']] = value['v'];
+        } else{
+            this.state.mobjects[selectionIndex].template[key] = value;
         }
-        ;
-
     }
-
-    updateObjects(name, template){
-
-        console.log("Updated Object to " + name + " " + template);
-
-        let c = Object.keys(this.state.Objects).length;
-        this.state.Objects[c] = {name: name, template: template};
-        this.setState({
-            Objects: {
-                ...this.state.Objects,
-            },
-            Selection: c,
-        });
-
-
-    }
-
-    updateSelection(selection){
-
-        console.log("Updated selection to " + selection);
-
-        this.setState({
-            Objects: {
-                ...this.state.Objects,
-            },
-            Selection: selection,
-        });
-    }
-
-
 
     render()
     {
         return(
             <Container>
                 <LeftPanel style={{width:"20vw"}}>
-                    <Hierarchy style={{backgroundColor: "#39383d"}} values = {this.state.Objects} callBack={this.bindedUpdateSelection}/>
-                    <Components style={{backgroundColor: "#616065"}} components={ManimObjects} callBack={this.bindedUpdateObject}/>
+
+                    <Hierarchy style={{backgroundColor: "#39383d"}}
+                               mobjects={this.state.mobjects}
+                               callBack={this.updateSelectedMobject}/>
+
+                    <Components style={{backgroundColor: "#616065"}}
+                                components={MobjectList}
+                                callBack={this.updateMobjectList}/>
                 </LeftPanel>
                 <MainPanel style={{width:"60vw"}}>
-                    <Preview style={{backgroundColor: "black"}}/>
-                    <Timeline style={{backgroundColor: "#616065"}}/>
-                </MainPanel>
-                <RightPanel style={{width:"20vw", backgroundColor:"#39383d"}} components = {this.state}>
 
+                    <Preview style={{backgroundColor: "black"}}
+                             mobjects={this.state.mobjects}
+                    />
+
+                    <Timeline style={{backgroundColor: "#616065"}}/>
+
+                </MainPanel>
+                <RightPanel style={{width:"20vw"}}>
+                    <UserInput
+                        selectedIndex = {this.state.selectedmobjectindex}
+                        selectectedmobject={this.state.mobjects[this.state.selectedmobjectindex]}
+                        callBack = {this.updateMobjectProperties}
+                    />
                 </RightPanel>
             </Container>
         );

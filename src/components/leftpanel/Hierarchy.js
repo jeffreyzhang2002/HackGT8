@@ -38,19 +38,28 @@ const Items = Styled.div`
 `
 
 export default class Hierarchy extends React.Component{
-    render(){
 
-        this.children = [];
+    render() {
+        let children = [];
 
-        Object.entries(this.props.values).forEach(([key, value]) => {
-            this.children.push(<Label onClick={() => {this.props.callBack(key)}}> {parseInt(key) + 1 + ": " + value.name} </Label>);
-        });
+        let index = 0;
+        Object.entries(this.props.mobjects).forEach(
+            ([key, value]) => {
+                children.push(
+                    <Label
+                        key = {index++}
+                        onClick={() => {this.props.callBack(key)}}>
+                        {parseInt(key) + 1 + ": " + value.name}
+                    </Label>
+                );
+            }
+        );
 
         return(
             <Container {...this.props}>
-                <Title> Object Tree </Title>
+                <Title> Manim Objects </Title>
                 <Items>
-                    {this.children}
+                    {children}
                 </Items>
             </Container>
         )

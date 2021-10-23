@@ -19,13 +19,6 @@ export default class Preview extends React.Component{
     }
 
     render(){
-        let canvas = document.getElementById('graphics');
-        if (canvas && canvas.getContext) {
-            let ctx = canvas.getContext('2d');
-            console.log("here");
-            console.log(this.props.mobjects);
-            Object.keys(this.props.mobjects).forEach(([key, value]) => {console.log(value)})
-        }
 
         return(
             <Container {...this.props}>

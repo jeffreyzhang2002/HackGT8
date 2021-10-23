@@ -26,7 +26,27 @@ export default class MComponent {
     }
 
     generate() {
-        console.log("nope, you didn't implement the fucking method")
+        console.log("nope, you didn't implement the fucking method");
+        return "nope, you didn't implement the fucking method";
+    }
+
+    generatePosition() {
+        return `${this.template.Name}.move_to([${this.template.Pose.X}, ${this.template.Pose.Y}, 0])`
+    }
+
+
+
+    generateFillStroke() {
+        let lines = [];
+        if ( (this.template.Fill.Enabled) && (this.template.Fill.Opacity > 0) ) {
+            lines.push(`${this.template.Name}.set_fill(color="${this.template.Fill.Color}", opacity=${this.template.Fill.Opacity})`);
+        }
+
+        if ( (this.template.Stroke.Enabled) && (this.template.Stroke.Width > 0) && (this.template.Stroke.Opacity > 0)) {
+            lines.push(`${this.template.Name}.set_stroke(color="${this.template.Stroke.Color}", width=${this.template.Stroke.Width}, opacity=${this.template.Stroke.Opacity})`);
+        }
+
+        return lines.join('\n');
     }
 
     preview() {

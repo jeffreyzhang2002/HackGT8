@@ -13,8 +13,6 @@ export default class Form extends React.Component{
     constructor(props) {
         super(props);
         this.state = {value : props.value}
-        console.log(this.state);
-
         this.update = this.updateValue.bind(this);
     }
 

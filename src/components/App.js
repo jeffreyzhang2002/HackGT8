@@ -43,6 +43,7 @@ export default class App extends React.Component
             },
             selectedmobjectindex: index,
         }, console.log("Appended " + template + " to mobject list"));
+        this.updateCanvas();
     }
 
     changeSelectedMobject(selection){
@@ -60,6 +61,19 @@ export default class App extends React.Component
             this.state.mobjects[selectionIndex].template[key][value['k']] = value['v'];
         } else{
             this.state.mobjects[selectionIndex].template[key] = value;
+        }
+        this.updateCanvas();
+    }
+
+    updateCanvas() {
+        let canvas = document.getElementById('graphics');
+        if (canvas && canvas.getContext) {
+            let ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            console.log(this.state.mobjects)
+            Object.keys(this.state.mobjects).forEach((key, value) => {
+                this.state.mobjects[key].preview(ctx);
+            })
         }
     }
 

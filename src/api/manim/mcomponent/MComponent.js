@@ -2,21 +2,23 @@
 export default class MComponent {
 
     constructor() {
+        this.render = true;
         this.template = {
-            Position:{
-                X: 0,
-                Y: 0,
-            },
+            Name: "Component",
+            Duration: 1000,
+            X: 0,
+            Y: 0,
+            Rotation: 0,
             Fill: {
                 Enabled: false,
                 Opacity: 0,
-                Color: 0,
+                Color: "#FFFFFF",
             },
             Stroke: {
                 Enabled: false,
                 Width: 0,
                 Opacity: 0,
-                Color: 0,
+                Color: "#FFFFFF",
             }
         }
     }

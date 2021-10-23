@@ -72,7 +72,8 @@ export default class App extends React.Component
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             console.log(this.state.mobjects)
             Object.keys(this.state.mobjects).forEach((key, value) => {
-                this.state.mobjects[key].preview(ctx);
+                if(this.state.mobjects[key].preview != undefined)
+                    this.state.mobjects[key].preview(ctx);
             })
         }
     }

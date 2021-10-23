@@ -8,6 +8,7 @@ export default class MFade extends MAnimation {
             Scale: 1,
             Shift: "None"
         }
+        this.name = "Fade";
     }
 
     generate() {

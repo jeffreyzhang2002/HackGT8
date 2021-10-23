@@ -6,18 +6,18 @@ export default class MLine extends MComponent {
 
         this.template = {
             Start: {
-                X1: undefined,
-                Y1: undefined,
+                X1: -1,
+                Y1: 0,
             },
             End: {
-                X2: undefined,
-                Y2: undefined,
+                X2: 1,
+                Y2: 0,
             },
             Stroke: {
                 Enabled: false,
-                Width: undefined,
-                Opacity: undefined,
-                Color: undefined,
+                Width: 0,
+                Opacity: 0,
+                Color: "#FFFFFF",
             }
         }
     }

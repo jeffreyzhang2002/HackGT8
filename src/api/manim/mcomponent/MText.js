@@ -16,12 +16,7 @@ export default class MText extends MComponent {
         params.push(`tex_strings=${this.template.Text}`);
         params.push(`font_size=${this.template.FontSize}`)
 
-        let allparams = "";
-        for (let i = 0; i < params.length; i++) {
-            allparams += params[i]
-            allparams += ", "
-        }
-        allparams = allparams.slice(0, allparams.length - 2);
+        let allparams = params.join(", ")
         lines.push(`${this.template.Name} = Text(${allparams})`);
 
         if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {

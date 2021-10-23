@@ -26,12 +26,7 @@ export default class MPoint extends MComponent {
         if (this.template.Color !== "#FFFFFF") {
             params.push(`color="${this.template.Color}"`);
         }
-        let allparams = "";
-        for (let i = 0; i < params.length; i++) {
-            allparams += params[i]
-            allparams += ", "
-        }
-        allparams = allparams.slice(0, allparams.length - 2);
+        let allparams = params.join(", ")
         lines.push(`${this.template.Name} = Dot(${allparams})`);
 
         let fs = super.generateFillStroke();

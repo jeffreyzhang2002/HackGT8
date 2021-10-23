@@ -26,16 +26,11 @@ export default class MCircle extends MComponent{
         if (this.template.Color.value !== "#FFFFFF") {
             params.push(`color="${this.template.Color}"`);
         }
-        let allparams = "";
-        for (let i = 0; i < params.length; i++) {
-            allparams += params[i]
-            allparams += ", "
-        }
-        allparams = allparams.slice(0, allparams.length - 2);
+        let allparams = params.join(", ");
         lines.push(`${this.template.Name} = Circle(${allparams})`);
 
         if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
-            lines.push(super.generatePosition())
+            lines.push(super.generatePosition());
         }
 
         let fs = super.generateFillStroke();

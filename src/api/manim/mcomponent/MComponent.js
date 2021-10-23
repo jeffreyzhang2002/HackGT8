@@ -3,6 +3,7 @@ export default class MComponent {
 
     constructor() {
         this.template = {
+            Name: undefined,
             X: undefined,
             Y: undefined,
             Fill: {

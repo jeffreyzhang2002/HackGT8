@@ -7,7 +7,7 @@ const Container = Styled.div`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    border-right: 4px solid blue;
+    border-right: 4px solid #262629;
 `;
 
 export default class LeftPanel extends React.Component{

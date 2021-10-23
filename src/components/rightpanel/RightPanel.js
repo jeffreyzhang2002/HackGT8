@@ -7,8 +7,7 @@ const Container = Styled.div`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    border-left: 4px solid blue;
-    
+    border-left: 4px solid #262629;
     overflow-y: auto;
     
 `;
@@ -28,6 +27,18 @@ const SingleBox = Styled.form`
 `;
 
 export default class RightPanel extends React.Component{
+
+    constructor(props) {
+        super(props);
+
+    }
+
+    setValue(key, value)
+    {
+
+    }
+
+
     render(){
 
 
@@ -49,7 +60,6 @@ export default class RightPanel extends React.Component{
 
                 if(false)
                 {
-                    console.log("single");
                     this.entries.push(
                         <SingleBox>
                             <label>{key}</label>
@@ -59,7 +69,6 @@ export default class RightPanel extends React.Component{
                 }
                 else
                 {
-                    console.log("multi");
                     this.childrenentries = [];
                     Object.entries(value).forEach(([key, value]) => {
                         this.childrenentries.push(

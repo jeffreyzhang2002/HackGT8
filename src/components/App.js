@@ -23,14 +23,21 @@ export default class App extends React.Component
         super(props);
 
         this.state = {
-            objects:{
-                line:{
-
-                },
-                circle:{
-
-                }
-            }};
+            values: {
+                line: {},
+                circle: {},
+                line1: {},
+                circle1: {},
+                line2: {},
+                circle2: {},
+                line3: {},
+                circle3: {},
+                line4: {},
+                circle4: {},
+                line5: {},
+                circle5: {},
+            }
+        };
 
     }
     render()
@@ -38,7 +45,7 @@ export default class App extends React.Component
         return(
             <Container>
                 <LeftPanel style={{width:"20vw", backgroundColor:"red"}}>
-                    <Hierarchy style={{backgroundColor: "gray"}} object = {this.state.object}/>
+                    <Hierarchy style={{backgroundColor: "gray"}} values = {this.state.values}/>
                     <Components style={{backgroundColor: "yellow"}} components={ManimObjects}/>
                 </LeftPanel>
                 <MainPanel style={{width:"60vw", backgroundColor:"green"}}>

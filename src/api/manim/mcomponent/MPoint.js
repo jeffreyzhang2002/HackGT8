@@ -11,6 +11,13 @@ export default class MPoint extends MComponent {
         }
     }
 
+    preview(ctx) {
+        var circle = new Path2D();
+        circle.arc(this.template.Pose.X,this.template.Pose.Y,this.template.Radius, 0, 2 * Math.PI)
+        ctx.strokeStyle = "#FF0000";
+        ctx.stroke(circle)
+    }
+
     generate() {
         let lines = [];
         let params = [];

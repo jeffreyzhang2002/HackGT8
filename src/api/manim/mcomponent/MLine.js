@@ -7,12 +7,12 @@ export default class MLine extends MComponent {
         this.name = "Line";
         this.template = {
             Start: {
-                X1: -1,
-                Y1: 0,
+                X: -1,
+                Y: 0,
             },
             End: {
-                X2: 1,
-                Y2: 0,
+                X: 1,
+                Y: 0,
             },
             Stroke: {
                 Enabled: false,
@@ -21,6 +21,14 @@ export default class MLine extends MComponent {
                 Color: "#FFFFFF",
             }
         }
+    }
+
+    preview(ctx) {
+        ctx.strokeStyle = "#FF0000";
+        ctx.beginPath();
+        ctx.moveTo(this.template.Start.X, this.template.Start.Y)
+        ctx.lineTo(this.template.End.X, this.template.End.Y)
+        ctx.stroke();
     }
 
     generate() {

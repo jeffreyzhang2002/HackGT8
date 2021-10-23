@@ -13,6 +13,12 @@ export default class MRectangle extends MComponent {
         }
     }
 
+    preview(ctx) {
+        ctx.strokeStyle = "#FF0000";
+        console.log(this.template.Pose.X, this.template.Pose.Y,this.template.Scale.Height,this.template.Width);
+        ctx.strokeRect(this.template.Pose.X, this.template.Pose.Y,this.template.Scale.Height,this.template.Scale.Width)
+    }
+
     generate() {
         let lines = [];
         let params = [];

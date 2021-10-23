@@ -2,8 +2,24 @@ const path = require('path');
 
 const { app, BrowserWindow } = require('electron');
 const isDev = require('electron-is-dev');
+const {exec} = require("child_process");
+
 
 function createWindow() {
+
+    exec("dir", (error, data, getter) => {
+        if(error){
+            console.log("error",error.message);
+            return;
+        }
+        if(getter){
+            console.log("data",data);
+            return;
+        }
+        console.log("data",data);
+
+    });
+
     // Create the browser window.
     const win = new BrowserWindow({
         width: 800,

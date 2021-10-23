@@ -6,8 +6,8 @@ export default class MRectangle extends MComponent {
         this.template = {
             ...this.template,
             Scale: {
-                Height: undefined,
-                Width: undefined,
+                Height: 1,
+                Width: 1,
             }
         }
     }

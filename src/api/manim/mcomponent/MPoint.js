@@ -5,7 +5,7 @@ export default class MPoint extends MComponent {
         super();
         this.template = {
             ...this.template,
-            Radius: undefined
+            Radius: 0.1
         }
     }
 }

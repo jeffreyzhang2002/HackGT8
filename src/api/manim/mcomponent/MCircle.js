@@ -6,7 +6,7 @@ export default class MCircle extends MComponent{
         super();
         this.template = {
             ...this.template,
-            Radius: undefined
+            Radius: 1
         }
     }
 }

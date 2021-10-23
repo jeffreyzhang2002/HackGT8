@@ -5,8 +5,8 @@ export default class MText extends MComponent {
         super();
         this.template = {
             ...this.template,
-            Text: undefined,
-            FontSize: undefined
+            Text: "Sample Text",
+            FontSize: 11
         }
     }
 }

@@ -42,10 +42,8 @@ export default class Hierarchy extends React.Component{
         this.children = [];
 
         Object.entries(this.props.values).forEach(([key, value]) => {
-            this.children.push(<Label> {key} </Label>);
+            this.children.push(<Label onClick={() => {this.props.callBack(key)}}> {parseInt(key) + 1 + ": " + value.name} </Label>);
         });
-
-        console.log(this.children);
 
         return(
             <Container {...this.props}>

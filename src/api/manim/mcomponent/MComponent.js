@@ -3,18 +3,20 @@ export default class MComponent {
 
     constructor() {
         this.template = {
-            X: undefined,
-            Y: undefined,
+            Position:{
+                X: 0,
+                Y: 0,
+            },
             Fill: {
                 Enabled: false,
-                Opacity: undefined,
-                Color: undefined,
+                Opacity: 0,
+                Color: 0,
             },
             Stroke: {
                 Enabled: false,
-                Width: undefined,
-                Opacity: undefined,
-                Color: undefined,
+                Width: 0,
+                Opacity: 0,
+                Color: 0,
             }
         }
     }

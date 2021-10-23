@@ -19,40 +19,64 @@ const Container = Styled.div`
 
 export default class App extends React.Component
 {
+
     constructor(props) {
         super(props);
 
+        this.bindedUpdateObject = this.updateObjects.bind(this);
+        this.bindedUpdateSelection = this.updateSelection.bind(this);
+
         this.state = {
-            values: {
-                line: {},
-                circle: {},
-                line1: {},
-                circle1: {},
-                line2: {},
-                circle2: {},
-                line3: {},
-                circle3: {},
-                line4: {},
-                circle4: {},
-                line5: {},
-                circle5: {},
-            }
-        };
+            Objects: {},
+            Selection: {}
+        }
+        ;
 
     }
+
+    updateObjects(name, template){
+
+        console.log("Updated Object to " + name + " " + template);
+
+        let c = Object.keys(this.state.Objects).length;
+        this.state.Objects[c] = {name: name, template: template};
+        this.setState({
+            Objects: {
+                ...this.state.Objects,
+            },
+            Selection: c,
+        });
+
+
+    }
+
+    updateSelection(selection){
+
+        console.log("Updated selection to " + selection);
+
+        this.setState({
+            Objects: {
+                ...this.state.Objects,
+            },
+            Selection: selection,
+        });
+    }
+
+
+
     render()
     {
         return(
             <Container>
                 <LeftPanel style={{width:"20vw", backgroundColor:"red"}}>
-                    <Hierarchy style={{backgroundColor: "gray"}} values = {this.state.values}/>
-                    <Components style={{backgroundColor: "yellow"}} components={ManimObjects}/>
+                    <Hierarchy style={{backgroundColor: "gray"}} values = {this.state.Objects} callBack={this.bindedUpdateSelection}/>
+                    <Components style={{backgroundColor: "yellow"}} components={ManimObjects} callBack={this.bindedUpdateObject}/>
                 </LeftPanel>
                 <MainPanel style={{width:"60vw", backgroundColor:"green"}}>
                     <Preview style={{backgroundColor: "white"}}/>
                     <Timeline style={{backgroundColor: "red"}}/>
                 </MainPanel>
-                <RightPanel style={{width:"20vw", backgroundColor:"orange"}}>
+                <RightPanel style={{width:"20vw", backgroundColor:"orange"}} components = {this.state}>
 
                 </RightPanel>
             </Container>

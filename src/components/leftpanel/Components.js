@@ -53,7 +53,8 @@ export default class Components extends React.Component {
         Object.entries(this.props.components).forEach(([key, value]) => {
             this.lables = [];
             Object.entries(value).forEach(([key,value])=> {
-                this.lables.push(<Label> {key} </Label>)
+                this.lables.push(<Label onClick={(e) =>
+                    {this.props.callBack(key, new value())}}> {key} </Label>)
             })
 
             this.children.push(

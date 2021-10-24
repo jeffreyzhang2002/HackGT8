@@ -6,12 +6,11 @@ const Container = Styled.div`
     display: flex;
     justify-content: space-between;
     padding-top: 0.5em;
-    background-color: white;
+    background-color: #222428;
+    color: #ffffff;
     
     &:hover{
-        
-        background-color: orange;
-    
+        background-color: #000000;
     }
 `;
 

@@ -108,11 +108,11 @@ export default class App extends React.Component
             <Container>
                 <LeftPanel style={{width:"20vw"}}>
 
-                    <Hierarchy style={{backgroundColor: "#39383d"}}
+                    <Hierarchy style={{backgroundColor: "#222428"}}
                                mobjects={this.state.mobjects}
                                callBack={this.updateSelectedMobject}/>
 
-                    <Components style={{backgroundColor: "#616065"}}
+                    <Components style={{backgroundColor: "#222428"}}
                                 components={MobjectList}
                                 callBack={this.updateMobjectList}
                                 gen={this.generator}
@@ -124,7 +124,7 @@ export default class App extends React.Component
                              mobjects={this.state.mobjects}
                     />
 
-                    <Timeline style={{backgroundColor: "#616065"}} animations = {this.scene.MA}/>
+                    <Timeline style={{backgroundColor: "#282a2f"}} animations = {this.scene.MA}/>
 
                 </MainPanel>
                 <RightPanel style={{width:"20vw"}}>

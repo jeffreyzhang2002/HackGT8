@@ -10,7 +10,7 @@ const Container = Styled.div`
     box-sizing: border-box;
     border-left: 4px solid #262629;
     overflow-y: auto;
-    background-color: gray;
+    background-color: #222428;
 `;
 
 export default class RightPanel extends React.Component{

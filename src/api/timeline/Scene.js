@@ -5,6 +5,13 @@ export default class Scene {
     }
 
     generate(name) {
+
+        function MATime(a, b) {
+            return a.template.StartTime - b.template.StartTime
+        }
+
+        this.MA.sort(MATime)
+
         let lines = [];
         lines.push(`class ${name}(Scene):`)
         lines.push(`\tdef construct(self):`)

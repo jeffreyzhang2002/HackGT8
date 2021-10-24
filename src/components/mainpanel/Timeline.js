@@ -9,6 +9,7 @@ const Container = Styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: #ffffff;
 `;
 
 const Title = Styled.h1`
@@ -23,7 +24,7 @@ export default class Timeline extends React.Component{
 
         return(
             <Container {...this.props}>
-                <Title> Time Line </Title>
+                <Title> Timeline </Title>
                 <Scene animations = {this.props.animations} />
             </Container>
         )

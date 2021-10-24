@@ -33,11 +33,13 @@ export default class MComponent {
     generatePose() {
         let list = []
         if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
-            list.push(`${this.template.Name}.move_to([${this.template.Pose.X}, ${this.template.Pose.Y}, 0])`);
+            list.push(`${this.name}.move_to([${this.template.Pose.X}, ${this.template.Pose.Y}, 0])`);
         }
         if ((this.template.Pose.Rotation !== 0)) {
-            list.push(`${this.template.Name}.rotate(${this.template.Pose.Rotation})`);
+            list.push(`${this.name}.rotate(${this.template.Pose.Rotation})`);
         }
+
+        return list;
     }
 
 
@@ -45,11 +47,11 @@ export default class MComponent {
     generateFillStroke() {
         let lines = [];
         if ( (this.template.Fill.Enabled) && (this.template.Fill.Opacity > 0) ) {
-            lines.push(`${this.template.Name}.set_fill(color="${this.template.Fill.Color}", opacity=${this.template.Fill.Opacity})`);
+            lines.push(`${this.name}.set_fill(color="${this.template.Fill.Color}", opacity=${this.template.Fill.Opacity})`);
         }
 
         if ( (this.template.Stroke.Enabled) && (this.template.Stroke.Width > 0) && (this.template.Stroke.Opacity > 0)) {
-            lines.push(`${this.template.Name}.set_stroke(color="${this.template.Stroke.Color}", width=${this.template.Stroke.Width}, opacity=${this.template.Stroke.Opacity})`);
+            lines.push(`${this.name}.set_stroke(color="${this.template.Stroke.Color}", width=${this.template.Stroke.Width}, opacity=${this.template.Stroke.Opacity})`);
         }
 
         return lines;

@@ -8,6 +8,6 @@ export default class MWrite extends MAnimation {
 
     generate() {
         let com = (this.template.Type === "Out") ? "Unwrite" : "Write";
-        return `${com}(${this.template.MainComponent.template.Name})`;
+        return `${com}(${this.template.MainComponent})`;
     }
 }

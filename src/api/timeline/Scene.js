@@ -13,7 +13,6 @@ export default class Scene {
             mc.generate().forEach(l => {
                 lines.push(`\t\t${l}`)
             })
-            lines.push('\n')
         })
 
         let prev = 0;

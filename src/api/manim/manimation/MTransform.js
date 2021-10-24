@@ -12,6 +12,6 @@ export default class MTransform extends MAnimation {
     }
 
     generate() {
-        return `Transform(${this.template.MainComponent.template.Name}, ${this.template.TargetComponent.template.Name})`
+        return `Transform(${this.template.MainComponent}, ${this.template.TargetComponent})`
     }
 }

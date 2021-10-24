@@ -26,7 +26,7 @@ export default class MCircle extends MComponent{
         if (this.template.Color.value !== "#FFFFFF") {
             params.push(`color="${this.template.Color}"`);
         }
-        lines.push(`${this.template.Name} = Circle(${params.join(", ")})`);
+        lines.push(`${this.name} = Circle(${params.join(", ")})`);
 
         super.generatePose().forEach(s => { lines.push(s) });
         super.generateFillStroke().forEach(s => { lines.push(s) });

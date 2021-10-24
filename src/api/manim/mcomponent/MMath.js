@@ -15,9 +15,7 @@ export default class MMath extends MComponent{
         let lines = [];
         lines.push(`${this.template.Name} = MathTex(tex_strings=${this.template.TexString})`);
 
-        if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
-            super.generatePosition().forEach(s => { lines.push(s) });
-        }
+        super.generatePose().forEach(s => {lines.push(s)});
         super.generateFillStroke().forEach(s => {lines.push(s)});
 
         return lines;

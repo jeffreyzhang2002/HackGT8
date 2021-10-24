@@ -28,10 +28,7 @@ export default class MCircle extends MComponent{
         }
         lines.push(`${this.template.Name} = Circle(${params.join(", ")})`);
 
-        if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
-            super.generatePosition().forEach(s => { lines.push(s) });
-        }
-
+        super.generatePose().forEach(s => { lines.push(s) });
         super.generateFillStroke().forEach(s => { lines.push(s) });
 
         return lines;

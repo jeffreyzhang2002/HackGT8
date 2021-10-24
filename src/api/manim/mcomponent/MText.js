@@ -17,10 +17,7 @@ export default class MText extends MComponent {
         params.push(`font_size=${this.template.FontSize}`);
         lines.push(`${this.template.Name} = Text(${params.join(", ")})`);
 
-        if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
-            super.generatePosition().forEach(s => {lines.push(s)});
-        }
-
+        super.generatePose().forEach(s => {lines.push(s)});
         super.generateFillStroke().forEach(s => {lines.push(s)});
 
         return lines;

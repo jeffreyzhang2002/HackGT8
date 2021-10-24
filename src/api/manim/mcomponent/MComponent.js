@@ -30,8 +30,14 @@ export default class MComponent {
         return ["nope, you didn't implement the fucking method"];
     }
 
-    generatePosition() {
-        return [`${this.template.Name}.move_to([${this.template.Pose.X}, ${this.template.Pose.Y}, 0])`];
+    generatePose() {
+        let list = []
+        if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
+            list.push(`${this.template.Name}.move_to([${this.template.Pose.X}, ${this.template.Pose.Y}, 0])`);
+        }
+        if ((this.template.Pose.Rotation !== 0)) {
+            list.push(`${this.template.Name}.rotate(${this.template.Pose.Rotation})`);
+        }
     }
 
 

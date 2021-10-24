@@ -13,7 +13,7 @@ export default class MMath extends MComponent{
 
     generate() {
         let lines = [];
-        lines.push(`${this.template.Name} = MathTex(tex_strings=${this.template.TexString})`);
+        lines.push(`${this.name} = MathTex(tex_strings=${this.template.TexString})`);
 
         super.generatePose().forEach(s => {lines.push(s)});
         super.generateFillStroke().forEach(s => {lines.push(s)});

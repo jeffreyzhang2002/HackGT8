@@ -8,15 +8,17 @@ const Container = Styled.div`
     flex-direction: column;
     align-items: center;
     border-bottom: 4px solid #262629;
+    color: #ffffff
 `;
 
 const Label = Styled.div`
     margin: 0;
     padding: 0;
     font-size: 1.5em;
+    background-color: #303235;
     
     &:hover{
-        background-color: orange;
+        background-color: #000000;
     }
 `;
 

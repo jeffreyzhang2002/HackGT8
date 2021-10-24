@@ -8,6 +8,7 @@ const Container = Styled.div`
     flex-direction: column;
     box-sizing: border-box;
     border-right: 4px solid #262629;
+    font-family: sans-serif;
 `;
 
 export default class LeftPanel extends React.Component{

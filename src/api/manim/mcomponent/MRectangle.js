@@ -3,7 +3,7 @@ import MComponent from "./MComponent";
 export default class MRectangle extends MComponent {
     constructor() {
         super();
-        this.name = "Rectangle"
+        this.name = "rectangle"
         this.template = {
             ...this.template,
             Scale: {
@@ -24,10 +24,10 @@ export default class MRectangle extends MComponent {
         let params = [];
         params.push(`height=${this.template.Height}`);
         params.push(`width=${this.template.Width}`)
-        if (this.template.Color.value !== "#FFFFFF") {
+        if (this.template.Color !== "#FFFFFF") {
             params.push(`color="${this.template.Color}"`);
         }
-        lines.push(`${this.template.Name} = Rectangle(${params.join(", ")})`);
+        lines.push(`${this.name} = Rectangle(${params.join(", ")})`);
 
         super.generatePose().forEach(s => {lines.push(s)});
         super.generateFillStroke().forEach(s => {lines.push(s)});

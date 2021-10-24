@@ -8,13 +8,13 @@ export default class MFade extends MAnimation {
             Scale: 1,
             Shift: "None"
         }
-        this.name = "Fade";
+        this.name = "fade";
     }
 
     generate() {
         let com = (this.template.Type === "Out") ? "FadeOut" : "FadeIn";
         let params = [];
-        params.push(`mobject=${this.template.MainComponent.template.Name}`);
+        params.push(`${this.template.MainComponent}`);
         if (this.template.Scale !== 1) {
             params.push(`scale=${this.template.Scale}`);
         }

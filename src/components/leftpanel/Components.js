@@ -6,6 +6,7 @@ const Container = Styled.div`
     height: 50%;  
     display: flex;
     flex-direction: column;
+    color: #ffffff;
 `;
 
 const Items = Styled.div`
@@ -19,13 +20,15 @@ const Items = Styled.div`
 
 const Detail = Styled.details`
     margin-top: 1em;
+    color: #ffffff;
 `;
 
 const Summary = Styled.summary`
     font-size: 1.5em;
+    color: #ffffff;
     
      &:hover{
-        background-color: orange;
+        background-color: #000000;
     }
 `;
 
@@ -33,9 +36,9 @@ const Label = Styled.p`
     margin: 0;
     margin-left: 1.5em;
     padding: 0;
-    
+    color: #ffffff;
     &:hover{
-        background-color: orange;
+        background-color: #000000;
     }
 `;
 
@@ -80,8 +83,8 @@ export default class Components extends React.Component {
                 <Items>
                     {renderList}
                 </Items>
-                <button onClick={() => {this.props.gen()}}>
-                    Generate
+                <button onClick={() => {this.props.gen()}} >
+                    Generate Manim
                 </button>
             </Container>
         )

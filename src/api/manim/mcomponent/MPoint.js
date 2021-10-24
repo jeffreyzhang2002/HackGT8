@@ -3,7 +3,7 @@ import MComponent from "./MComponent";
 export default class MPoint extends MComponent {
     constructor() {
         super();
-        this.name = "Point";
+        this.name = "point";
         this.template = {
             ...this.template,
             Radius: 0.1,
@@ -26,7 +26,7 @@ export default class MPoint extends MComponent {
         if (this.template.Color !== "#FFFFFF") {
             params.push(`color="${this.template.Color}"`);
         }
-        lines.push(`${this.template.Name} = Dot(${params.join(", ")})`);
+        lines.push(`${this.name} = Dot(${params.join(", ")})`);
 
         super.generateFillStroke().forEach(s => {lines.push(s)});
 

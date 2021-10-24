@@ -5,7 +5,7 @@ const Container = Styled.div`
     width: 100%;
     height: 50%;  
     display: flex;
-    background-color: white;
+    background-color: #1e2024;
     overflow-x: auto;
 `;
 

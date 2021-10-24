@@ -9,18 +9,21 @@ const Container = Styled.div`
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    color: #ffffff;
 `;
 
 const Title = Styled.h1`
     margin: 0;
     padding-top: 1em;
     text-align: center;
+    color: #ffffff
 `
 
 const Subtitle = Styled.h1`
     margin: 0;
     padding-top: 0.5em;
     font-size: 1.5em;
+    color: #ffffff
 
 `
 

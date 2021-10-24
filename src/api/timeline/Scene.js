@@ -16,12 +16,19 @@ export default class Scene {
             lines.push('\n')
         })
 
+        let prev = 0;
         group(this.MA).forEach(g => {
+            if (g.Time > prev) {
+                lines.push(`\t\tself.wait(${g.Time - prev})`);
+            }
             let anames = [];
-            g.Anims.forEach(a => { anames.push(a.generate()) })
+            g.Anims.forEach(a => { anames.push(a.generate()) });
+            lines.push(`\t\tself.play(${anames.join(", ")})`);
         })
 
+        lines.push(`\t\tself.wait(0.5)`);
 
+        return lines.join('\n')
     }
 }
 

@@ -4,7 +4,7 @@ import MComponent from "./MComponent";
 export default class MCircle extends MComponent{
     constructor() {
         super();
-        this.name = "Circle";
+        this.name = "circle";
         this.template = {
             ...this.template,
             Radius: 0.1,

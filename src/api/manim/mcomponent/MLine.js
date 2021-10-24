@@ -4,7 +4,7 @@ export default class MLine extends MComponent {
     constructor() {
         super();
 
-        this.name = "Line";
+        this.name = "line";
         this.template = {
             Start: {
                 X: -1,

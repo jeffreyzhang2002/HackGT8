@@ -3,7 +3,7 @@ import MComponent from "./MComponent";
 export default class MRectangle extends MComponent {
     constructor() {
         super();
-        this.name = "Rectangle"
+        this.name = "rectangle"
         this.template = {
             ...this.template,
             Scale: {

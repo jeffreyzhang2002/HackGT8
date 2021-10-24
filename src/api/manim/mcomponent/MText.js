@@ -3,6 +3,7 @@ import MComponent from "./MComponent";
 export default class MText extends MComponent {
     constructor() {
         super();
+        this.name = "text";
         this.template = {
             ...this.template,
             Text: "Sample Text",

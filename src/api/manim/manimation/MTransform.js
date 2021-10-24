@@ -8,7 +8,7 @@ export default class MTransform extends MAnimation {
             TargetComponent: undefined
         }
         this.template.Type = "Both"
-        this.name = "Transform";
+        this.name = "transform";
     }
 
     generate() {

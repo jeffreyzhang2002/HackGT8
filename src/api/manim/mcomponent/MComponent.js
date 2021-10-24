@@ -3,7 +3,7 @@ export default class MComponent {
 
     constructor() {
         this.render = true;
-        this.name = "Mobject";
+        this.name = "mobject";
         this.template = {
 
             Pose: {

@@ -27,18 +27,14 @@ export default class MRectangle extends MComponent {
         if (this.template.Color.value !== "#FFFFFF") {
             params.push(`color="${this.template.Color}"`);
         }
-        let allparams = params.join(", ")
-        lines.push(`${this.template.Name} = Rectangle(${allparams})`);
+        lines.push(`${this.template.Name} = Rectangle(${params.join(", ")})`);
 
         if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
-            lines.push(super.generatePosition())
+            super.generatePosition().forEach(s => {lines.push(s)});
         }
 
-        let fs = super.generateFillStroke();
-        if (fs.length > 0) {
-            lines.push();
-        }
+        super.generateFillStroke().forEach(s => {lines.push(s)});
 
-        return lines.join('\n');
+        return lines;
     }
 }

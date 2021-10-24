@@ -11,21 +11,16 @@ export default class MMath extends MComponent{
         }
     }
 
-
     generate() {
         let lines = [];
         lines.push(`${this.template.Name} = MathTex(tex_strings=${this.template.TexString})`);
 
         if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
-            lines.push(super.generatePosition())
+            super.generatePosition().forEach(s => { lines.push(s) });
         }
+        super.generateFillStroke().forEach(s => {lines.push(s)});
 
-        let fs = super.generateFillStroke();
-        if (fs.length > 0) {
-            lines.push();
-        }
-
-        return lines.join('\n');
+        return lines;
     }
 }
 

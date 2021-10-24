@@ -14,20 +14,15 @@ export default class MText extends MComponent {
         let lines = [];
         let params = [];
         params.push(`tex_strings=${this.template.Text}`);
-        params.push(`font_size=${this.template.FontSize}`)
-
-        let allparams = params.join(", ")
-        lines.push(`${this.template.Name} = Text(${allparams})`);
+        params.push(`font_size=${this.template.FontSize}`);
+        lines.push(`${this.template.Name} = Text(${params.join(", ")})`);
 
         if ((this.template.Pose.X !== 0) || (this.template.Pose.Y !== 0)) {
-            lines.push(super.generatePosition())
+            super.generatePosition().forEach(s => {lines.push(s)});
         }
 
-        let fs = super.generateFillStroke();
-        if (fs.length > 0) {
-            lines.push();
-        }
+        super.generateFillStroke().forEach(s => {lines.push(s)});
 
-        return lines.join('\n');
+        return lines;
     }
 }

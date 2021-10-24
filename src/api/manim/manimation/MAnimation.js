@@ -2,7 +2,8 @@ export default class MAnimation {
     constructor() {
         this.template = {
             Type: "Auto", // In, Out, Both, Auto is a placeholder pretty much lmfao
-            MainComponent: undefined
+            MainComponent: undefined,
+            StartTime: 0
         }
     }
 

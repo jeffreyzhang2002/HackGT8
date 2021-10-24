@@ -27,11 +27,11 @@ export default class MComponent {
 
     generate() {
         console.log("nope, you didn't implement the fucking method");
-        return "nope, you didn't implement the fucking method";
+        return ["nope, you didn't implement the fucking method"];
     }
 
     generatePosition() {
-        return `${this.template.Name}.move_to([${this.template.Pose.X}, ${this.template.Pose.Y}, 0])`
+        return [`${this.template.Name}.move_to([${this.template.Pose.X}, ${this.template.Pose.Y}, 0])`];
     }
 
 
@@ -46,7 +46,7 @@ export default class MComponent {
             lines.push(`${this.template.Name}.set_stroke(color="${this.template.Stroke.Color}", width=${this.template.Stroke.Width}, opacity=${this.template.Stroke.Opacity})`);
         }
 
-        return lines.join('\n');
+        return lines;
     }
 
     preview() {

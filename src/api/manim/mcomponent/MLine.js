@@ -36,13 +36,12 @@ export default class MLine extends MComponent {
         let params = [];
         params.push(`start=[${this.template.Start.X1},${this.template.Start.Y1},0]`);
         params.push(`start=[${this.template.End.X2},${this.template.End.Y2},0]`);
-        let allparams = params.join(", ");
-        lines.push(`${this.template.Name} = Line(${allparams})`);
+        lines.push(`${this.template.Name} = Line(${params.join(", ")})`);
 
         if ( (this.template.Stroke.Enabled) && (this.template.Stroke.Width > 0) && (this.template.Stroke.Opacity > 0)) {
             lines.push(`${this.template.Name}.set_stroke(color="${this.template.Stroke.Color}", width=${this.template.Stroke.Width}, opacity=${this.template.Stroke.Opacity})`);
         }
 
-        return lines.join('\n');
+        return lines;
     }
 }

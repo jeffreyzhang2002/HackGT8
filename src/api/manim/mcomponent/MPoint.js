@@ -26,14 +26,10 @@ export default class MPoint extends MComponent {
         if (this.template.Color !== "#FFFFFF") {
             params.push(`color="${this.template.Color}"`);
         }
-        let allparams = params.join(", ")
-        lines.push(`${this.template.Name} = Dot(${allparams})`);
+        lines.push(`${this.template.Name} = Dot(${params.join(", ")})`);
 
-        let fs = super.generateFillStroke();
-        if (fs.length > 0) {
-            lines.push();
-        }
+        super.generateFillStroke().forEach(s => {lines.push(s)});
 
-        return lines.join('\n');
+        return lines;
     }
 }

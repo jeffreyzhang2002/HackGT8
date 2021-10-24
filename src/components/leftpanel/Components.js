@@ -80,6 +80,9 @@ export default class Components extends React.Component {
                 <Items>
                     {renderList}
                 </Items>
+                <button onClick={() => {this.props.gen()}}>
+                    Generate
+                </button>
             </Container>
         )
     }

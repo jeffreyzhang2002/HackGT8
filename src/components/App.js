@@ -13,6 +13,7 @@ import Scene from "../api/timeline/Scene";
 
 import MobjectList from "../MobjectList";
 import MAnimation from "../api/manim/manimation/MAnimation";
+import Project from "../api/timeline/Project";
 
 
 const Container = Styled.div`
@@ -26,11 +27,14 @@ export default class App extends React.Component
     constructor(props) {
         super(props);
 
+        this.project = new Project();
         this.scene = new Scene();
+        this.project.Scenes.push(this.scene);
 
         this.updateMobjectList = this.appendMobjectList.bind(this);
         this.updateSelectedMobject = this.changeSelectedMobject.bind(this);
         this.updateMobjectProperties = this.updateLabels.bind(this);
+        this.generator = this.generate.bind(this);
 
         this.state = {
             mobjects: {},
@@ -81,6 +85,10 @@ export default class App extends React.Component
         this.updateCanvas();
     }
 
+    generate() {
+        console.log(this.project.generate());
+    }
+
     updateCanvas() {
         let canvas = document.getElementById('graphics');
         if (canvas && canvas.getContext) {
@@ -106,7 +114,9 @@ export default class App extends React.Component
 
                     <Components style={{backgroundColor: "#616065"}}
                                 components={MobjectList}
-                                callBack={this.updateMobjectList}/>
+                                callBack={this.updateMobjectList}
+                                gen={this.generator}
+                    />
                 </LeftPanel>
                 <MainPanel style={{width:"60vw"}}>
 

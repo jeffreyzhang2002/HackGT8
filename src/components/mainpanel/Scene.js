@@ -5,31 +5,34 @@ const Container = Styled.div`
     width: 100%;
     height: 50%;  
     display: flex;
-    background-color: gray;
+    background-color: white;
     overflow-x: auto;
-    background-color: pink;
 `;
 
 const AnimationBlock = Styled.div`
     width: 300px;
     height: 100%
-    background-color: red;
-    border: 2px solid blue;
+    border: 2px solid black;
+    
+    &:hover{
+        background-color: orange;
+    }
 `;
 
 export default class Scene extends React.Component{
     render(){
 
         let animations = [];
-
-        for(let i = 0; i < 10; i++)
-        {
+        this.props.animations.forEach( (value) => {
+            console.log(value);
             animations.push(
                 <AnimationBlock>
-                    {i}
-                </AnimationBlock>
-            )
-        }
+                    {value.name}
+                </AnimationBlock>)
+
+        })
+
+
 
         return(
             <Container {...this.props}>

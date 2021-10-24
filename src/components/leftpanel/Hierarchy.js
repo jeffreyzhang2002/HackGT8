@@ -33,7 +33,7 @@ const Items = Styled.div`
     box-sizing: border-box; 
     display: flex;
     flex-direction: column;
-    background-color: pink;
+    background-color: white;
     overflow-y: auto;
 `
 

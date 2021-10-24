@@ -21,12 +21,10 @@ const Title = Styled.h1`
 export default class Timeline extends React.Component{
     render(){
 
-        let animations = [];
-
         return(
             <Container {...this.props}>
                 <Title> Time Line </Title>
-                <Scene/>
+                <Scene animations = {this.props.animations} />
             </Container>
         )
     }

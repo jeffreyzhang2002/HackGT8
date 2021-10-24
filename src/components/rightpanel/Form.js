@@ -5,7 +5,14 @@ const Container = Styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: yellow;
+    padding-top: 0.5em;
+    background-color: white;
+    
+    &:hover{
+        
+        background-color: orange;
+    
+    }
 `;
 
 export default class Form extends React.Component{

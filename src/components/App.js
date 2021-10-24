@@ -9,8 +9,10 @@ import Components from "./leftpanel/Components";
 import Preview from "./mainpanel/Preview";
 import Timeline from "./mainpanel/Timeline";
 import UserInput from "./rightpanel/UserInput";
+import Scene from "../api/timeline/Scene";
 
 import MobjectList from "../MobjectList";
+import MAnimation from "../api/manim/manimation/MAnimation";
 
 
 const Container = Styled.div`
@@ -23,6 +25,8 @@ export default class App extends React.Component
 {
     constructor(props) {
         super(props);
+
+        this.scene = new Scene();
 
         this.updateMobjectList = this.appendMobjectList.bind(this);
         this.updateSelectedMobject = this.changeSelectedMobject.bind(this);
@@ -43,6 +47,18 @@ export default class App extends React.Component
             },
             selectedmobjectindex: index,
         }, console.log("Appended " + template + " to mobject list"));
+
+        if(template instanceof MAnimation)
+        {
+            this.scene.MA.push(template);
+            console.log(this.scene.MA);
+        }
+        else
+        {
+            this.scene.MC.push(template);
+            console.log(this.scene.MC);
+        }
+
         this.updateCanvas();
     }
 
@@ -98,7 +114,7 @@ export default class App extends React.Component
                              mobjects={this.state.mobjects}
                     />
 
-                    <Timeline style={{backgroundColor: "#616065"}}/>
+                    <Timeline style={{backgroundColor: "#616065"}} animations = {this.scene.MA}/>
 
                 </MainPanel>
                 <RightPanel style={{width:"20vw"}}>
